@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>个人自我介绍</title>
+    <style>
+        /* 全局默认：深墨绿主题 */
+        :root {
+            --bg-color: #243f34;      /* 深墨绿色背景 */
+            --title-color: #152b22;   /* 深墨绿标题 */
+            --card-bg: #ffffff;
+            --text-color: #444444;
+            --tag-bg: #f0f3f7;        /* 技能标签背景色 */
+        }
+        /* 深色模式变量 */
+        .dark {
+            --bg-color: #12201a;
+            --title-color: #78a892;
+            --card-bg: #1e332a;
+            --text-color: #c9d9d1;
+            --tag-bg: #2a4a3d;        /* 深色模式下标签背景色 */
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: 0.5s;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* 页头样式 */
+        header {
+            margin-bottom: 30px;
+        }
+        header h2 {
+            color: #FFFFFF;
+            font-size: 26px;
+        }
+
+        /* 切换按钮 */
+        .switch-btn {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: var(--title-color);
+            color: white;
+            cursor: pointer;
+        }
+
+        /* 卡片板块样式 */
+        .card {
+            background: var(--card-bg);
+            padding: 26px;
+            margin-bottom: 22px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        h1, h3 {
+            color: var(--title-color);
+        }
+
+        p {
+            line-height: 1.7;
+        }
+
+        /* 技能栈标签样式 */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .skill-tag {
+            background: var(--tag-bg);
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 18px;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 页头 -->
+    <header>
+        <h2>yanyi23333</h2>
+    </header>
+
+    <!-- 浅色/深色切换 -->
+    <div class="switch-btn">
+        <button onclick="toggleMode()">浅色/深色</button>
+    </div>
+
+    <!-- 板块1：个人简介 -->
+    <div class="card">
+        <h1>梁安之</h1>
+        <p>大连海事大学 25级机械类</p >
+    </div>
+
+    <!-- 板块2：个人信息 -->
+    <div class="card">
+        <h3 style="border-bottom: 1px dashed #ccc; padding-bottom: 10px;">快速信息</h3>
+        <p>所在地：辽宁 大连</p >
+        <p>学校：大连海事大学</p >
+        <p>专业：机械类</p >
+    </div>
+
+    <!-- 板块3：关于我 -->
+    <div class="card">
+        <h3 style="border-bottom: 1px dashed #ccc; padding-bottom: 10px;">关于我</h3>
+        <p>我就读于大连海事大学机械类专业，对计算机知识和前后端开发方面有兴趣，希望能不断在实践中积累经验、提升能力、拓宽视野，掌握更多实用技能。</p >
+    </div>
+
+    <div class="card">
+        <h3 style="border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
+            技能栈 <span style="float:right; color:var(--text-color); font-weight:normal;"></span>
+        </h3>
+        <div class="skill-tags">
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">HTML / CSS</span>
+        </div>
+    </div>
+
+    <!-- 板块4：联系方式 -->
+    <div class="card">
+        <h3 style="border-bottom: 1px dashed #ccc; padding-bottom: 10px;">联系方式</h3>
+        <p>邮箱：549883070@qq.com</p >
+        <p>电话：18002556773</p >
+        <p>Github：@yanyi23333</p >
+    </div>
+
+</div>
+
+<script>
+// 切换白天黑夜模式
+function toggleMode(){
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
