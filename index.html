@@ -25,7 +25,7 @@
 
         body {
             margin: 0;
-            padding-top: 90px;
+            padding-top: 75px;
             padding-left: 15px;
             padding-right: 15px;
             font-family: "Microsoft YaHei", sans-serif;
@@ -43,7 +43,7 @@
             margin: 0 auto;
         }
 
-        /* 固定页头布局 */
+        /* 固定头：强制一行、不换行 */
         header {
             position: fixed;
             top: 0;
@@ -54,21 +54,23 @@
             padding: 12px 20px;
             display: flex;
             align-items: center;
-            /* 左：名字 + 导航整体偏左  右：按钮 */
             justify-content: flex-start;
-            gap: 30px;
-            flex-wrap: wrap;
+            gap: 20px;
+            flex-wrap: nowrap;   /* 关键：手机也不换行 */
+            overflow-x: auto;    /* 太窄可横向滑一点点 */
         }
         header h2 {
             color: #FFFFFF;
-            font-size: 22px;
+            font-size: 20px;
             margin: 0;
+            white-space: nowrap;
         }
 
-        /* 导航：四个标签 等间距 */
+        /* 导航标签等间距、不换行 */
         .nav-tags {
             display: flex;
-            gap: 26px; /* 完全等间隔 */
+            gap: 22px;
+            white-space: nowrap;
         }
         .nav-tags a {
             padding: 5px 12px;
@@ -82,33 +84,34 @@
             background: rgba(255,255,255,0.3);
         }
 
-        /* 切换按钮靠右顶死 */
+        /* 按钮永远靠右 */
         header button {
             margin-left: auto;
         }
 
-        /* 日月图标切换 */
+        /* 太阳月亮图标 —— 大小一致 */
         button {
-            padding: 6px 14px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border: none;
-            border-radius: 20px;
+            border-radius: 50%;
             background: var(--title-color);
             color: white;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
         }
-        .dark button .fa-moon-o {
-            display: none;
+        /* 默认显示月亮，深色显示太阳 */
+        button .fa {
+            position: absolute;
         }
-        .dark button .fa-sun-o {
-            display: inline;
-        }
-        button .fa-sun-o {
-            display: none;
-        }
-        button .fa-moon-o {
-            display: none;
-        }
+        button { position: relative; }
+        .dark .fa-moon-o { display: none; }
+        .dark .fa-sun-o  { display: block; }
+        .fa-sun-o        { display: none; }
+        .fa-moon-o       { display: block; }
 
         /* 普通卡片 */
         .card {
@@ -158,7 +161,6 @@
 
 <header>
     <h2>yanyi23333</h2>
-    <!-- 四个标签 等间距、整体偏左 -->
     <div class="nav-tags">
         <a href=" ">个人信息</a >
         <a href="#about">关于我</a >
@@ -190,11 +192,11 @@
     </div>
 
     <div id="skill" class="card">
-        <h3 style="border-bottom: 10px solid rgba(0,0,0,0.05); padding-bottom: 10px;">
+        <h3 style="border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 10px;">
             技能栈 <span style="float:right; color:var(--text-color); font-weight:normal;"></span>
         </h3>
         <div class="skill-tags">
-            <span class="skill-tag">C++</span>
+            <span class="skill-tag">C语言</span>
             <span class="skill-tag">HTML / CSS</span>
         </div>
     </div>
