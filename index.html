@@ -2,9 +2,12 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人自我介绍</title>
     <style>
+        /* 引入图标库（用于太阳/月亮） */
+        @import url("https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css");
+
         /* 全局默认：深墨绿主题 */
         :root {
             --bg-color: rgba(36, 63, 52, 0.85);      
@@ -26,11 +29,10 @@
             margin: 0;
             padding: 15px;
             font-family: "Microsoft YaHei", sans-serif;
-            background-image: url("https://github.com/yanyi23333/yanyi/blob/main/474589fad0cdb92e3a3e8e8540f2d176.jpg?raw=true");  
+            background-image: url("474589fad0cdb92e3a3e8e8540f2d176.jpg");  
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: transparent;
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: 0.5s;
@@ -82,6 +84,21 @@
             background: var(--title-color);
             color: white;
             cursor: pointer;
+            font-size: 18px;
+        }
+        /* 深色模式下按钮显示太阳 */
+        .dark button .fa-moon-o {
+            display: none;
+        }
+        .dark button .fa-sun-o {
+            display: inline;
+        }
+        /* 浅色模式下按钮显示月亮 */
+        button .fa-sun-o {
+            display: none;
+        }
+        button .fa-moon-o {
+            display: inline;
         }
 
         /* 普通卡片 */
@@ -127,7 +144,7 @@
             border-color: rgba(255,255,255,0.4) !important;
         }
     </style>
-    </head>
+</head>
 <body>
 
 <div class="container">
@@ -136,18 +153,20 @@
     </header>
 
     <div class="nav-tags">
-        <a href="#info">个人信息</a >
+        <a href=" ">个人信息</a >
         <a href="#about">关于我</a >
         <a href="#skill">技能栈</a >
         <a href="#contact">联系方式</a >
     </div>
 
     <div class="switch-btn">
-        <button onclick="toggleMode()">浅色/深色</button>
+        <button onclick="toggleMode()">
+            <i class="fa fa-moon-o"></i>
+            <i class="fa fa-sun-o"></i>
+        </button>
     </div>
 
     <div class="card">
-
         <h1>梁安之</h1>
         <p>大连海事大学 25级机械类</p >
     </div>
@@ -169,7 +188,6 @@
             技能栈 <span style="float:right; color:var(--text-color); font-weight:normal;"></span>
         </h3>
         <div class="skill-tags">
-            <!-- 已全部统一成 skill-tag -->
             <span class="skill-tag">C语言</span>
             <span class="skill-tag">HTML / CSS</span>
         </div>
