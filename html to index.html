@@ -2,29 +2,35 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, scale=1.0">
     <title>个人自我介绍</title>
     <style>
         /* 全局默认：深墨绿主题 */
         :root {
-            --bg-color: #243f34;      /* 深墨绿色背景 */
-            --title-color: #152b22;   /* 深墨绿标题 */
+            --bg-color: rgba(36, 63, 52, 0.85);      
+            --title-color: #152b22;
             --card-bg: #ffffff;
             --text-color: #444444;
-            --tag-bg: #f0f3f7;        /* 技能标签背景色 */
+            --tag-bg: #f0f3f7;
         }
-        /* 深色模式变量 */
+        /* 深色模式 */
         .dark {
-            --bg-color: #12201a;
+            --bg-color: rgba(18, 32, 26, 0.88);
             --title-color: #78a892;
             --card-bg: #1e332a;
             --text-color: #c9d9d1;
-            --tag-bg: #2a4a3d;        /* 深色模式下标签背景色 */
+            --tag-bg: #2a4a3d;
         }
 
         body {
             margin: 0;
-            padding: 30px;
+            padding: 15px;
             font-family: "Microsoft YaHei", sans-serif;
+            background-image: url("474589fad0cdb92e3a3e8e8540f2d176.jpg");  
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: transparent;
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: 0.5s;
@@ -35,13 +41,33 @@
             margin: 0 auto;
         }
 
-        /* 页头样式 */
+        /* 页头 */
         header {
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
         header h2 {
             color: #FFFFFF;
             font-size: 26px;
+            margin: 8px 0;
+        }
+
+        /* 导航标签 */
+        .nav-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .nav-tags a {
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav-tags a:hover {
+            background: rgba(255,255,255,0.3);
         }
 
         /* 切换按钮 */
@@ -58,13 +84,13 @@
             cursor: pointer;
         }
 
-        /* 卡片板块样式 */
+        /* 普通卡片 */
         .card {
             background: var(--card-bg);
             padding: 26px;
             margin-bottom: 22px;
             border-radius: 14px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 12px 12px rgba(0,0,0,0.12);
         }
 
         h1, h3 {
@@ -75,12 +101,12 @@
             line-height: 1.7;
         }
 
-        /* 技能栈标签样式 */
+        /* 技能标签 —— 统一样式 */
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
         .skill-tag {
             background: var(--tag-bg);
@@ -89,54 +115,68 @@
             font-size: 18px;
             color: var(--text-color);
         }
+
+        /* 仅联系方式：透明底 + 白色字 + 无阴影 */
+        #contact {
+            background: transparent !important;
+            box-shadow: none !important;
+            color: #ffffff;
+        }
+        #contact h3 {
+            color: #ffffff;
+            border-color: rgba(255,255,255,0.4) !important;
+        }
     </style>
-</head>
+    </head>
 <body>
 
 <div class="container">
-    <!-- 页头 -->
     <header>
         <h2>yanyi23333</h2>
     </header>
 
-    <!-- 浅色/深色切换 -->
+    <div class="nav-tags">
+        <a href="#info">个人信息</a >
+        <a href="#about">关于我</a >
+        <a href="#skill">技能栈</a >
+        <a href="#contact">联系方式</a >
+    </div>
+
     <div class="switch-btn">
         <button onclick="toggleMode()">浅色/深色</button>
     </div>
 
-    <!-- 板块1：个人简介 -->
     <div class="card">
+        <h1>梁安之</h1>
         <h1>梁安之</h1>
         <p>大连海事大学 25级机械类</p >
     </div>
 
-    <!-- 板块2：个人信息 -->
-    <div class="card">
+    <div id="info" class="card">
         <h3 style="border-bottom: 1px dashed #ccc; padding-bottom: 10px;">快速信息</h3>
         <p>所在地：辽宁 大连</p >
         <p>学校：大连海事大学</p >
         <p>专业：机械类</p >
     </div>
 
-    <!-- 板块3：关于我 -->
-    <div class="card">
+    <div id="about" class="card">
         <h3 style="border-bottom: 1px dashed #ccc; padding-bottom: 10px;">关于我</h3>
         <p>我就读于大连海事大学机械类专业，对计算机知识和前后端开发方面有兴趣，希望能不断在实践中积累经验、提升能力、拓宽视野，掌握更多实用技能。</p >
     </div>
 
-    <div class="card">
+    <div id="skill" class="card">
         <h3 style="border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
             技能栈 <span style="float:right; color:var(--text-color); font-weight:normal;"></span>
         </h3>
         <div class="skill-tags">
+            <!-- 已全部统一成 skill-tag -->
             <span class="skill-tag">C++</span>
             <span class="skill-tag">HTML / CSS</span>
         </div>
     </div>
 
-    <!-- 板块4：联系方式 -->
-    <div class="card">
-        <h3 style="border-bottom: 1px dashed #ccc; padding-bottom: 10px;">联系方式</h3>
+    <div id="contact" class="card">
+        <h3 style="border-bottom: 1px dashed #fff; padding-bottom: 10px;">联系方式</h3>
         <p>邮箱：549883070@qq.com</p >
         <p>电话：18002556773</p >
         <p>Github：@yanyi23333</p >
@@ -145,7 +185,6 @@
 </div>
 
 <script>
-// 切换白天黑夜模式
 function toggleMode(){
     document.body.classList.toggle("dark");
 }
